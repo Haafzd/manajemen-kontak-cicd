@@ -67,7 +67,7 @@
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/haafzd</url>
+      <url>https://maven.pkg.github.com/Haafzd/manajemen-kontak-cicd</url>
     </repository>
   </distributionManagement>
 </project>

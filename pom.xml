@@ -4,7 +4,7 @@
   <groupId>com.telyu.contact</groupId>
   <artifactId>manajemen-kontak</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>manajemen-kontak</name>
   
   <properties>
@@ -71,3 +71,4 @@
     </repository>
   </distributionManagement>
 </project>
+

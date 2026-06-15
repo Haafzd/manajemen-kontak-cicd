@@ -27,4 +27,8 @@ public class Contact {
         int atIndex = emailValue.indexOf('@');
         return atIndex > 0 && atIndex < emailValue.length() - 1;
     }
+
+    public String test() {
+        return ("DPBO NIH BOS");
+    }
 }

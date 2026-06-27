@@ -2,7 +2,7 @@ name: CI - Build, Test, Inspection
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "deployment", "CICD" ]
   pull_request:
     branches: [ "main" ]
 
@@ -26,6 +26,16 @@ jobs:
 
       - name: Continuous Testing - Run unit tests
         run: mvn test
+
+      - name: Continuous Inspection - Generate PMD Dashboard & Check
+        run: mvn pmd:pmd pmd:check
+
+      - name: Upload PMD Dashboard Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pmd-dashboard-report
+          path: target/site/pmd.html
 
       - name: Package application
         run: mvn package -DskipTests

@@ -1,0 +1,21 @@
+name: CD - Trigger Deployment
+
+on:
+  workflow_run:
+    workflows: ["CD - Publish Maven Package"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Make deploy.sh executable
+        run: chmod +x deploy/deploy.sh
+
+      - name: Run deployment script
+        run: ./deploy/deploy.sh
